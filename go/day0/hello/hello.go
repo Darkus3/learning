@@ -1,26 +1,32 @@
 package main
 
 import (
-  "fmt"
-  "log"
-  "tleroy/greetings"
+	"fmt"
+	"log"
+	"tleroy/greetings"
 )
 
 func main() {
-  var (
-    name string
-    name2 string
-  )
-  // Getting name from user
-  fmt.Printf("Enter your name:")
-  fmt.Scanf("%v %v",&name,&name2)
+	//var (
+	//	name  string
+	//	name2 string
+	//)
 
-  log.SetPrefix("greetings: ")
-  log.SetFlags(0)
+	// A slice of name
+	names := []string{"Theophile", "Bob", "Dylan", "Mélanie"}
 
-  // Getting greetings and printing it
-  message, err := greetings.Hello(name+name2)
-  if err != nil { log.Fatal(err) }
+	// Getting name from user
+	//fmt.Printf("Enter your name:")
+	//fmt.Scanf("%v %v",&name,&name2)
 
-  fmt.Println(message)
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	// Getting greetings and printing it
+	message, err := greetings.Hellos(names)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(message)
 }

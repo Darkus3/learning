@@ -1,13 +1,52 @@
 package greetings
 
 import (
-  "fmt"
-  "errors"
+	"errors"
+	"fmt"
+	"math/rand"
+	"time"
 )
 
-// Return a personalized greetings
+// Return a *single* personalized greetings
 func Hello(name string) (string, error) {
-  if name == "" { return "", errors.New("Empty Name") }
-  greet := fmt.Sprintf("Hi, %v. Welcome!", name)
-  return greet, nil
+	if name == "" {
+		return "", errors.New("Empty Name")
+	}
+	greet := fmt.Sprintf(randomFormat(), name)
+	return greet, nil
+}
+
+// Return *multiple* greetings message that associate to each name
+func Hellos(names []string) (map[string]string, error) {
+	// Create a map
+	messages := make(map[string]string)
+	// Iterate over names[]
+	for _, name := range names {
+		// get individual greets
+		message, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = message
+	}
+	return messages, nil
+}
+
+// Initialization the random seeds for number generator
+// It is automatically executed by go at program startup
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
+// Return one of pre-defined greets, randomly
+func randomFormat() string {
+	// Slice := "dynamic table"
+	formats := []string{
+		"Bonjour %v, bienvenue à vous!",
+		"Hi %v, Welcome!",
+		"Yo %v! Bien ou bien ?!",
+	}
+
+	// Return a random format
+	return formats[rand.Intn(len(formats))]
 }
