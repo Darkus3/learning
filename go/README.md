@@ -29,3 +29,9 @@ dependencies:
 - Modify greet module to generate random message 
 - Add multi names handling with "Slice", that are dynamic tables.
 - Use Hash Map to associate greet message with names.
+- Write *Test case* for my module. Go make it easy to deploy unit
+  testing with internal tools and stdlib through module *testing*.
+  - TestHelloName := Test return value if a match with original name is
+    found
+  - TestHelloEmpty := Test is error handling works, should fail if Hello
+    return empty string and no error

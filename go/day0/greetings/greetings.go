@@ -12,7 +12,8 @@ func Hello(name string) (string, error) {
 	if name == "" {
 		return "", errors.New("Empty Name")
 	}
-	greet := fmt.Sprintf(randomFormat(), name)
+	//greet := fmt.Sprintf(randomFormat(), name)
+	greet := fmt.Sprint(randomFormat())
 	return greet, nil
 }
 
