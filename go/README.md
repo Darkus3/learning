@@ -8,5 +8,11 @@ scripting.
 ## Agenda
 ### DAY 0
 Build simple module and discover basics of go lang
+dependencies:
+- fmt (standart in & out): Println, Scanf, Sprintf...
+- errors
+- log
+
+
 ### DAY 1
 
