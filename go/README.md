@@ -35,3 +35,5 @@ dependencies:
     found
   - TestHelloEmpty := Test is error handling works, should fail if Hello
     return empty string and no error
+- Build module and add go bin dir to $PATH. You can now run your module
+  as a shell cmd.
